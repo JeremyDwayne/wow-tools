@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title><%= content_for(:title) || "Wow" %></title>
+    <title><%= content_for(:title) || "WoW Tools" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
@@ -23,23 +23,49 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <main class="container mx-auto mt-28 px-5 flex">
-      <p class="py-2 px-3 bg-red-50 mb-5 text-red-500 font-medium rounded-lg inline-block" id="alert"><%= alert %></p>
-      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <body class="leading-normal tracking-normal text-gray-900">
 
-      <div class="mb-4 w-full">
-      <% if authenticated? %>
-        <%= button_to "Log out", session_path, method: :delete %>
-      <% else %>
-          <%= link_to "Sign Up", new_registration_path %>
-          <%= link_to "Log in", new_session_path %>
-      <% end %>
+    <div class="h-screen pb-14">
+      <!--Nav-->
+      <div class="w-full container mx-auto p-6">
+
+        <div class="w-full flex items-center justify-between">
+          <a class="flex items-center text-indigo-400 no-underline hover:no-underline font-bold text-2xl lg:text-4xl"  href="#"> 
+            <svg class="h-8 fill-current text-indigo-600 pr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 20a10 10 0 1 1 0-20 10 10 0 0 1 0 20zm-5.6-4.29a9.95 9.95 0 0 1 11.2 0 8 8 0 1 0-11.2 0zm6.12-7.64l3.02-3.02 1.41 1.41-3.02 3.02a2 2 0 1 1-1.41-1.41z"/></svg> WoW Tools
+          </a>
+
+          <div class="flex w-1/2 justify-end content-center">
+            <% if authenticated? %>
+              <%= button_to "Log out", session_path, method: :delete, class: "inline-block text-blue-300 no-underline hover:text-indigo-800 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4" %>
+            <% else %>
+              <%= link_to "Sign Up", new_registration_path, class: "inline-block text-blue-300 no-underline hover:text-indigo-800 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4" %>
+              <%= link_to "Log in", new_session_path, class: "inline-block text-blue-300 no-underline hover:text-indigo-800 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4" %>
+            <% end %>
+          </div>
+        </div>
       </div>
 
-      <div>
-      <%= yield %>
+      <!--Main-->
+      <div class="container pt-24 md:pt-48 px-6 mx-auto flex flex-wrap flex-col md:flex-row items-center">
+
+        <% if alert %>
+          <p class="py-2 px-3 bg-red-50 mb-5 text-red-500 font-medium rounded-lg inline-block" id="alert"><%= alert %></p>
+        <% end %>
+        <% if notice %>
+          <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+        <% end %>
+
+
+        <div>
+          <%= yield %>
+        </div>
+
+        <!--Footer-->
+        <div class="w-full pt-16 pb-6 text-sm text-center md:text-left">
+          <a class="text-gray-500 no-underline hover:no-underline" href="#">&copy; Jeremy Winterberg 2024</a>
+        </div>
       </div>
-    </main>
+    </div>
   </body>
+
 </html>
