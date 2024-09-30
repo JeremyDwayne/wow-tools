@@ -1,24 +1,14 @@
-# README
+# WoW Tools
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[Try It](https://wow.jeremydwayne.com)
 
-Things you may want to cover:
+Collection of tools I've made to improve my own gameplay. :sparkle: Its Free :sparkle:
 
-* Ruby version
+Future feature ideas:
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- [ ] Mythic Plus tracker and notes
+  - integration with raider.io api or wow api to pull in recently ran keys
+  - ability to write notes on how the run went, what you could've done better, what mistakes people made, etc...
+  - potential AI opportunity to analyze those notes and provide tips??
+- [ ] Group composition recommendations
+  - based on your current party, what classes would complement your group if you need to pug a role
